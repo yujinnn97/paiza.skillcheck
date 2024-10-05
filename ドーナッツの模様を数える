@@ -1,10 +1,10 @@
-H,W=map(int,input().split())
-grid=[input()for _ in range(H)]
-
+H,W=map(int,input().split())　#HとWを標準入力で取得する
+grid=[input()for _ in range(H)]　#H行分の入力を取得し、gridリストに格納する
+#例外処理を行う
 if H<0 or W<0:
     print(0)
-    exit()
-#3×3の配列の中に真ん中の要素だけ"."が含まれているかを判定
+    exit()　
+#3×3の配列の中に真ん中の要素だけ"."が含まれているかを判定する関数を設定する
 def in_valid_pattern(x,y):
     if grid[x+1][y+1]!=".":
         return False
