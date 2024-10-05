@@ -1,0 +1,26 @@
+H,W=map(int,input().split())
+grid=[input()for _ in range(H)]
+
+if H<0 or W<0:
+    print(0)
+    exit()
+#3×3の配列の中に真ん中の要素だけ"."が含まれているかを判定
+def in_valid_pattern(x,y):
+    if grid[x+1][y+1]!=".":
+        return False
+    surrounding_cells=[
+        grid[x][y],grid[x][y+1],grid[x][y+2],
+        grid[x+1][y],           grid[x+1][y+2],
+        grid[x+2][y],grid[x+2][y+1],grid[x+2][y+2]
+        ]
+    return all(cell=="#" for cell in surrounding_cells)
+    
+count=0
+    
+for i in range(H-2):
+    for j in range(W-2):
+        if in_valid_pattern(i,j):
+            count+=1 
+                
+print(count) 
+                
