@@ -1,7 +1,6 @@
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
-// 自分の得意な言語で
-// Let's チャレンジ！！
+//標準入力で配列を受け取る
 var lines = [];
 var reader = require('readline').createInterface({
   input: process.stdin,
@@ -10,9 +9,9 @@ var reader = require('readline').createInterface({
 reader.on('line', (line) => {
   lines.push(line);
 });
-reader.on('close', () => {
-  let X=parseInt(lines[0]);
-  let N=parseInt(lines[1]);
+reader.on('close', () => {　
+  let X=parseInt(lines[0]);    //1行目の値を変数X(スタミナが1回復するまでに必要な時間) とする 
+  let N=parseInt(lines[1]);　　//2行目の値を変数N(現在のスタミナ)とする
   if(N>=0&&N<N<=100){
       console.log((100-N)*X)
   }else{
