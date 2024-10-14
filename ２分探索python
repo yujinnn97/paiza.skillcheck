@@ -1,0 +1,29 @@
+N,X=map(int,input().split())
+A=list(map(int,input().split()))
+
+def binary_search(arr,target):
+  left=0
+  right=len(arr)-1
+  
+  while left<=right:
+    mid=(left+right)//2
+    if arr[mid]==target:
+      return mid
+    elif arr[mid]>target:
+      right=mid-1
+    else:
+      left=mid+1
+    
+  return -1
+  
+if len(A)==N:
+  result=binary_search(A,X)
+  if result!=-1:
+    print(result+1)
+  else:
+    print("Not Found")
+else:
+  print("Error")
+  
+  
+  
