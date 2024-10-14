@@ -1,0 +1,14 @@
+S=str(input()) 　#文字列Sを標準入力
+N=int(input())　 #文字列の要素数を標準入力
+T=input().strip().split()
+
+def is_correct_menu(S,T):　#文字列Sが配列Ｔに含まれるか確認する関数を定義
+    if S in T:
+        print("Yes")
+    else:
+        print("No")
+    
+if len(T)==N:　　　　　#配列Ｔの要素数が要素数Ｎと値が一致するかで場合分け
+    is_correct_menu(S,T)
+else:
+    print("Error")
