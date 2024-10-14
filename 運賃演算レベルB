@@ -1,0 +1,24 @@
+N,M=map(int,input().split())　　　　　#標準入力で配列Aの行数と列数を取得
+A=[]　　　　　　　　　　　　　　　　　　#N行の配列Aを取得
+for i in range(0,N):
+    A.append(list(map(int,input().split())))
+X=int(input())　　　　　　　　　　　　 #配列Rの行数を取得
+R=[]　　　　　　　　　　　　　　　　　　#X行の配列Rを取得
+for i in range(0,X):
+    R.append(list(map(int,input().split())))
+answer=0
+r1,c1=R[0]　　　　　　　　　　　　　　　　
+answer+=A[r1-1][c1-1]-A[0][0]　　　　 #最初の運賃を加算
+for k in range(X-1):
+    r1,c1=R[k]
+    r2,c2=R[k+1]
+    r1,c1,r2,c2=r1-1,c1-1,r2-1,c2-1
+    if r1==r2:
+        answer+=abs(A[r1][c1]-A[r1][c2])　　#配列Rの後続の行で、同じ行の配列を指定された場合の、運賃の加算
+    else:
+        if c1!=c2:
+            answer+=abs(A[r2][c1]-A[r2][c2])　　#配列Rの後続の行で、異なる行の配列を指定され、なおかつ異なる列を指定された場合の、運賃の加算
+        else:
+            answer+=0　　　　　　　　　　　　　#配列Rの後続の行で、異なる行の配列を指定され、なおかつ同じ列を指定された場合の、運賃の加算
+
+print(answer)
