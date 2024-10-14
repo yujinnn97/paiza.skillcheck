@@ -1,0 +1,13 @@
+N,K=map(int,input().split())　　　#カードの数値の最大値、3枚のカードの総和を表すN,Kをそれぞれ標準入力
+count=0
+if N<=3000:
+  for i in range(1,N+1):　　　　　#全探索を3つの値に対して行うと計算量がO^3となるので、計算量削減のため、2つの変数を動かした
+    for j in range(1,N+1):
+      k=K-i-j　　　　　　　　　　　　
+      if 0<k<N+1:
+        count+=1
+else:
+  print("Error")
+
+print(count)
+          
