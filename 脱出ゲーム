@@ -1,0 +1,48 @@
+from collections import deque
+H,W=map(int,input().split())
+grid=[]
+start_position = None #start_positionの初期化
+
+#各行に対して文字列を受け取っていく
+for i in range(H):
+    row=input().strip()
+    if 'S' in row:
+        start_position=(i,row.index("S"))
+    grid.append(row)
+
+if start_position is None:  #start_positionが見つからなければ、探索せずに処理を終える
+    print("NO")
+    exit()
+
+#start_positionから出発して、gridの4辺のうちの1辺に到達できるかどうかを判定する関数
+def can_reach_grid_edge(H,W,grid,start_position):
+    directions=[(-1,0),(1,0),(0,-1),(0,1)] #上下左右に動く
+    queue = deque([start_position])
+    visited=[[False]*W for _ in range(H)]
+    visited[start_position[0]][start_position[1]]=True
+    
+    while queue:
+        x,y=queue.popleft()
+        
+        #グリッドの辺々に到達できるか判定
+        if x==0 or x==H-1 or y==0 or y==W-1:
+            return "YES"
+        
+        #隣接するマスに移動できるか判定
+        for dx, dy in directions:
+            nx, ny =x+dx, y+dy
+            if 0<=nx<H and 0<=ny<W and not visited[nx][ny]and grid[nx][ny] in(".","S"):
+                visited[nx][ny]=True
+                queue.append((nx,ny))
+        
+    return "NO"
+
+
+result = can_reach_grid_edge(H, W, grid, start_position)
+print(result)
+
+    
+
+
+        
+    
