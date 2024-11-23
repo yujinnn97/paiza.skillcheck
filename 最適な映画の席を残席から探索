@@ -1,0 +1,36 @@
+#include <iostream>
+#include<vector>
+#include<cmath>
+#include<algorithm>
+#include<set>
+using namespace std;
+int main(){
+    int N,H,W,P,Q;
+    cin>>N>>H>>W>>P>>Q;
+    vector<int>p(N);
+    vector<int>q(N);
+    set<pair<int,int>>reserved;
+    for(int i=0;i<N;i++){
+        cin>>p[i]>>q[i];
+        reserved.insert({p[i],q[i]});
+    }
+    int min_distance=1000;
+    vector<pair<int,int>> best_seats;
+    for(int i=0;i<H;i++){
+        for(int j=0;j<W;j++){
+            if(reserved.find({i,j})==reserved.end()){
+                int distance=abs(i-P)+abs(j-Q);
+                if(distance<min_distance){
+                    min_distance=distance;
+                    best_seats.clear();
+                    best_seats.push_back({i,j});
+                }else if(distance==min_distance){
+                    best_seats.push_back({i,j});
+                }
+            }
+        }
+    }
+    for(const auto&seat:best_seats){
+        cout<<seat.first<<" "<<seat.second<<endl;
+    }
+}
