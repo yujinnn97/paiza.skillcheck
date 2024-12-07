@@ -1,0 +1,25 @@
+import sys
+data=sys.stdin.read().splitlines()
+
+N,L=map(int,data[0].split())
+u=list(map(int,data[1].split()))
+total=0 #全体の支払額を初期化
+
+#クーポンが利用できるかを判定
+def is_coupon_available(prices,coupon_price):
+    for price in prices:
+        if price>=coupon_price:
+            return True
+    return False
+
+if is_coupon_available(u,L):
+    max_price=max(u)
+    total+=max_price//2
+    u.remove(max_price)
+    total+=sum(u)
+    
+else:
+    total=sum(u)
+
+print(total)
+        
