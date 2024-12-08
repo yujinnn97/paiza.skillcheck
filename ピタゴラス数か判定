@@ -1,0 +1,18 @@
+import math
+#与えられた点の原点からの距離を出力する関数を設計
+def distanceToOrigin(x,y):
+    distance=math.sqrt(x**2+y**2)
+    return distance
+#与えられた数が自然数か判定する関数を設計
+def hasDecimal(number):
+    return number.is_integer() and number>0
+#与えられた数がピタゴラス数になりえるか判定する関数を設計
+def isPerfectSquare(x,y):
+    # 関数を完成させてください
+    if hasDecimal(distanceToOrigin(x,y)):
+        return True
+    return False
+
+
+
+
