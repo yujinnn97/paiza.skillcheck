@@ -1,0 +1,26 @@
+#地点の緯度を取得
+def getLatitudeDirection(latitude):
+    if latitude>0:
+        return "north"
+    elif latitude==0:
+        return "equator"
+    else:
+        return "south"
+#地点の経度を取得
+def getLongitudeDirection(longitude):
+    if longitude>0:
+        return "east"
+    elif longitude==0:
+        return "prime meridian"
+    else:
+        return "west"
+#地点の緯度、経度を合わせて取得
+def calculateLocation(latitude,longitude):
+    # 関数を完成させてください
+    lat_direction=getLatitudeDirection(latitude)
+    long_direction=getLongitudeDirection(longitude)
+    return f"{lat_direction}/{long_direction}"
+    
+    
+
+
