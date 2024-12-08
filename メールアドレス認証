@@ -1,0 +1,22 @@
+def isValidEmail(email):
+    # 関数を完成させてください
+    if " " in email:
+        return False
+    if "@" in email:
+        if email[0]=="@":
+            return False
+        else:
+            atLocation=email.find("@")
+            domain=email[atLocation+1:]
+            if "@" in domain:
+                return False
+            else:
+                if "." in domain:
+                    return True
+                else:
+                    return False
+
+
+    
+
+
