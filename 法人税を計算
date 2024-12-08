@@ -1,0 +1,33 @@
+import math
+def stateTax(state):
+    if state=="AZ":
+        return 4.9
+    elif state=="CA":
+        return 8.84
+    elif state=="TX":
+        return 0
+    elif state=="NC":
+        return 2.5
+    else:
+        return 5
+
+def isLeapYear(year):
+    if year%4==0:
+        if year%100!=0 or year%400==0:
+            return True
+        else:
+            return False
+    return False
+        
+
+
+def calculateCorporationTax(state,year,profit):
+    # 関数を完成させてください
+    if isLeapYear(year):
+        return math.ceil(profit*(stateTax(state)/100))
+    else:
+        taxToPay=(stateTax(state)/100)*profit+profit*0.21
+        return math.ceil(taxToPay)
+
+
+
