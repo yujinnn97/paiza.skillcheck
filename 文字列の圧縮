@@ -1,0 +1,19 @@
+def stringCompression(s):
+    # 関数を完成させてください
+    count=0
+    if len(s)<=1:
+        return s
+    else:
+        if s[1]!=s[0]:
+            return s[0]+stringCompression(s[1:])
+        else:
+            for i in range(len(s)):
+                if s[i]==s[0]:
+                    count+=1
+                else:
+                    break
+            return s[0]+str(count)+stringCompression(s[count:])
+
+
+
+
