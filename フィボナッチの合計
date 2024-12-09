@@ -1,0 +1,15 @@
+def fibonacciTotalHelper(f1,f2,total,n,count):
+    if n==count:
+        return total
+    else:
+        return fibonacciTotalHelper(f2,f1+f2,total+f2,n,count+1)
+def fibonacciTotal(n):
+    # 関数を完成させてください
+    if n<=0:
+        return 0
+    elif n==1:
+        return 1
+    else:
+        return fibonacciTotalHelper(1,1,1,n,1)
+
+
