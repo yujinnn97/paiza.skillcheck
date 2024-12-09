@@ -1,0 +1,22 @@
+def rentRate(year):
+    if year%2==0:
+        return 0.02
+    else:
+        return 0.03
+def howLongToReachFundGoal(capitalMoney,goalMoney,interest,year=0):
+    # 関数を完成させてください
+    if year>=80:
+        return 80
+    else:
+        if capitalMoney>=goalMoney:
+            return year
+        else:
+            rate=rentRate(year)
+            goalMoney+=goalMoney*rate
+            capitalMoney+=capitalMoney*(interest/100)
+            return howLongToReachFundGoal(capitalMoney,goalMoney,interest,year+1)
+
+
+
+
+
