@@ -1,0 +1,22 @@
+def gcd(x,y):
+    if x%y==0:
+        return y
+    else:
+        return gcd(y,x%y)
+def irreducibleFraction(x,y):
+    # 関数を完成させてください
+    if gcd(x,y)==1:
+        if y!=1:
+            return f"{x}/{y}"
+        else:
+            return x
+    else:
+        x_divided=x//gcd(x,y)
+        y_divided=y//gcd(x,y)
+        if y_divided!=1:
+            return f"{x_divided}/{y_divided}"
+        else:
+            return x_divided
+
+
+
