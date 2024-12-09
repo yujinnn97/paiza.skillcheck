@@ -1,0 +1,15 @@
+def recursiveIsPalindromeHelper(s):
+    if len(s)<=1:
+        return True
+    else:
+        if s[0]==s[-1]:
+            return recursiveIsPalindrome(s[1:-1])
+        else:
+            return False
+
+def recursiveIsPalindrome(s):
+    # 関数を完成させてください
+    s1="".join(c.lower() for c in s if c.isalnum())
+    return recursiveIsPalindromeHelper(s1)
+
+
