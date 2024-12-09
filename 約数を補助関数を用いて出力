@@ -1,0 +1,16 @@
+def divisorHelper(number,count):
+    if count>number:
+        return []
+    if number%count==0:
+        return [count]+divisorHelper(number,count+1)
+    else:
+        return divisorHelper(number,count+1)
+def divisor(number):
+    # 関数を完成させてください
+    divisors=divisorHelper(number,1)
+    return "-".join(map(str,divisors))
+
+
+
+
+
