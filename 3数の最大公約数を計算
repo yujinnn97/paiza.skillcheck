@@ -1,0 +1,13 @@
+def twoGCD(x,y):
+    if x%y==0:
+        return y
+    else:
+        return twoGCD(y,x%y)
+def threeGCD(x,y,z):
+    # 関数を完成させてください
+    gcd_xy=twoGCD(x,y)
+    return twoGCD(gcd_xy,z)
+    
+
+
+
