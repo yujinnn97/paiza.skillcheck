@@ -1,0 +1,15 @@
+def maxBread(money,price,sticker):
+    # 関数を完成させてください
+    item=money//price
+    stickers=0
+    stickers+=item
+    if stickers<sticker:
+        return item
+    elif stickers==sticker:
+        return item+1
+    else:
+        while stickers>=sticker:
+            buy=1
+            stickers-=sticker-1
+            item+=buy
+        return item
