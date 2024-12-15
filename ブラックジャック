@@ -1,0 +1,39 @@
+def cardValue(card):
+    """
+    カード1枚の値を数値に変換する関数。
+    """
+    # 特殊カードの値を定義
+    value_map = {"A": 1, "J": 11, "Q": 12, "K": 13}
+    
+    # マーク（♠, ♥, ♣, ♦）を取り除いて数値部分を抽出
+    rank = card[1:]  # 2文字目以降がランク部分
+    
+    # ランクが特殊カードならマッピングから値を返す
+    if rank in value_map:
+        return value_map[rank]
+    else:
+        return int(rank)  # 数字カードの場合は数値に変換
+
+
+def winnerBlackjack(playerCards, houseCards):
+    """
+    プレイヤーとハウスの手札を比較し、勝敗を判定する関数。
+    """
+    # 各手札の合計値を計算
+    playerSum = sum(cardValue(card) for card in playerCards)
+    houseSum = sum(cardValue(card) for card in houseCards)
+
+    # 勝敗の判定
+    if playerSum > 21:  # プレイヤーが21を超えた場合
+        return False
+    if houseSum > 21:  # ハウスが21を超えた場合
+        return True
+    return playerSum > houseSum  # プレイヤーの合計が大きければTrue
+
+
+# テストケース
+print(winnerBlackjack(["♣4", "♥7", "♥7"], ["♠Q", "♣J"]))  # True
+print(winnerBlackjack(["♥10", "♥6", "♣K"], ["♠Q", "♦2", "♥K"]))  # False
+print(winnerBlackjack(["♠3", "♠J", "♣5"], ["♣A", "♥Q", "♣5"]))  # True
+print(winnerBlackjack(["♥2", "♣A", "♣8", "♥7", "♥3"], ["♥6", "♥K", "♣5", "♥K"]))  # True
+print(winnerBlackjack(["♥2", "♣A", "♣8", "♥7", "♥3"], ["♥2", "♣A", "♣8", "♥7", "♥3"]))  # False
