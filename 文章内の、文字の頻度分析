@@ -1,0 +1,16 @@
+def charFrequency(message,hashmap=None):
+    # 関数を完成させてください
+    if hashmap is None:
+        hashmap={}
+    message=message.strip(" ")
+    for letter in message:
+        for char in letter:
+            if char not in hashmap and "a"<=char<="z":
+                hashmap[char]=1
+            elif char in hashmap and "a"<=char<="z":
+                hashmap[char]+=1
+    sorted_key=sorted(hashmap.keys())
+    list=[f"{char} : {hashmap[char]}" for char in sorted_key]
+    return list
+    
+
